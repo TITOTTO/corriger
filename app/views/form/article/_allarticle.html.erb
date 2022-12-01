@@ -1,0 +1,17 @@
+<!-- Ne pas afficher l'article si article.buyer est différent de nil (Donc s'il a été acheté) -->
+<!-- if article.buyer != nil -->
+
+
+<div id="articles">
+  <% @articles.each do |article| %>
+  <!-- Le code ici a pour but de ne montrer que les articles que l'on recherche grace aux filtres 
+        if params[:tags] == nil  Ce qui signifie, si aucun filtre n'existe, donc on affiche tout
+        else   Si on rentre dans la condition else, cela signifie qu'il y a un filtre, dans ce cas on affiche pas tout -->
+    <%= article.title %>
+    <%= article.content %>
+    <%= article.price %>
+    <p>
+      <%= link_to "Show this article", article %>
+    </p>
+  <% end %>
+</div>
