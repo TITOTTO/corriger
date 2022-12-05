@@ -26,8 +26,15 @@
     <%= form.number_field :price %>
   </div>
 
-  <%= form.collection_select :kind, Category.order(:kind), :id, :kind %>
-  <%= form.collection_select :typeconsole, Console.order(:typeconsole), :id, :typeconsole %>
+  <div>
+    <%= form.label :typeofgame %>
+    <%= form.select :typeofgame, options_for_select(Article.typeofgames.map {|key, value| [key.titleize, Article.typeofgames.key(value)]}, article.typeofgame) %>
+  </div>
+
+  <div>
+    <%= form.label :console %>
+    <%= form.select :console, options_for_select(Article.consoles.map {|key, value| [key.titleize, Article.consoles.key(value)]}, article.console) %>
+  </div>
 
   <div>
     <%= form.submit %>
