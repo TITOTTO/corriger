@@ -3,12 +3,8 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
+    puts params
     @articles = Article.all
-    @category = Category.all  # Jusqu'à la ligne 11, ça sert juste pour les filtres sur la page index
-    @tab = []
-    @category.each do |cat|
-      @tab << cat.kind
-    end
   end
 
   # GET /articles/1 or /articles/1.json
@@ -29,7 +25,7 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   def create
     art = params[:article]
-    @article = Article.new(title: art[:title], content: art[:content], price: art[:price], category_id: art[:kind], console_id: art[:typeconsole])
+    @article = Article.new(title: art[:title], content: art[:content], price: art[:price], typeofgame: art[:typeofgame], console: art[:console])
     @article.seller = current_user
 
     respond_to do |format|

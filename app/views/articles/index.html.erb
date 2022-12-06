@@ -8,23 +8,6 @@
 
 <%= link_to "New article", new_article_path %>
 
-<!-- Cette partie du code affiche un filtre si on veut par exemple n'afficher que les consoles ou que les jeux ps1 etc ...
 
-
-
-
-      <div class="col-md-6">
-        <div class="h-100 p-5 bg-light border rounded-3">
-        <%= form_with url: "/articles", method: :get do |form| %>
-          <% @tab.each do |cat| %>
-            <%= form.label cat %> <br />
-            <%= form.check_box :tags, { multiple: true }, cat, nil %> <br />
-          <% end %>
-
-            <%= form.submit %>
-        <% end %>
-        </div>
-      </div>
--->
 
 <%= link_to "Mettre un commentaire", nil , remote: true, class: "btn btn-danger", data: {controller: "background"}%> <!-- Pas encore codé -->
